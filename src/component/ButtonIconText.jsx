@@ -9,10 +9,15 @@ const ButtonIconText = ({
   onClick,
   className = "",
 }) => {
+  const setBgColor = `${bgColor}-500`;
+  const setBgColorHover = `hover:${bgColor}-600`;
+  const setTextColor = `text-${textColor}`;
+  const setTextSize = `text-${textSize}`;
+
   return (
     <button
       onClick={onClick}
-      className={`flex ${bgColor}-500 text-${textColor} p-2 py-1 items-center text-${textSize} hover:${bgColor}-600 ${className}`}
+      className={`flex ${setBgColor} ${setTextColor} p-2 py-1 items-center ${setTextSize} ${setBgColorHover} ${className}`}
     >
       {Icon && <Icon className="mx-1" />}
       <span className="hidden sm:block">{label}</span>
