@@ -1,30 +1,17 @@
-import { useState, useContext } from "react";
-import { AppContext } from "./context/AppContext";
-import ImageWithText from "./component/ImageWithText";
-import FileUpload from "./component/FileUpload";
-import sampleImage from "./assets/FPNG-Esig.png";
+import { Route, Routes } from "react-router-dom";
+import Container from "./layout/Container";
+import DataContainer from "./page/DataContainer";
+import ResultContainer from "./page/ResultContainer";
 
 function App() {
-  const {state} = useContext(AppContext);
-  console.log(state.records);
-  
-  const [imgSrc, setImgSrc] = useState(sampleImage);
-
-
   return (
-    <div className="App flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
-      
-      <header className="App-header text-center">  
-        <FileUpload />    
-        {
-          state.records && state.records.map((record,idx) => (
-            <ImageWithText key={idx} src={imgSrc} text={record} />
-          ))
-        }        
-      </header>
-
-    </div>
-  )
+    <Routes>
+      <Route element={<Container />}>
+        <Route path="/" element={<DataContainer />} />
+        <Route path="/result" element={<ResultContainer />} />
+      </Route>
+    </Routes>
+  );
 }
 
-export default App
+export default App;
