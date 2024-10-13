@@ -7,7 +7,7 @@ const ButtonIconText = ({
   textColor = "white",
   textSize = "sm",
   onClick,
-  className,
+  className = "",
 }) => {
   return (
     <button
